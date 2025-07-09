@@ -6,7 +6,7 @@
 <!-- //Summary -->
 1. Extended the Sales Header Table and added 2 new fields ie Delivery methos & Delivery Isntructions - these fields only apply when the Document Type = Order
 2. Added the new fields in the Shipping Fast Tab
-3. Added an Event publisher to ensure that if Delivery Method is 'Courier' the Delivery isntructions are included in the order
+3. Added an Event publisher to ensure that if Delivery Method is 'Courier' the Delivery istructions are included in the order
 4. Updated/ Inserted the Delivery Instructions in a Delivery Instructions Log Table
 
 

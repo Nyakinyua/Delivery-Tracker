@@ -22,10 +22,16 @@ table 50100 "Delivery Instruction Log"
         {
             Caption = 'Date Time of Last Modification';
         }
+        field(5; "Entry No."; Integer)
+        {
+            Caption = 'Entry No.';
+            AutoIncrement = true;
+            DataClassification = SystemMetadata;
+        }
     }
     keys
     {
-        key(PK; "Sales Order No.")
+        key(PK; "Sales Order No.","Entry No.")
         {
             Clustered = true;
         }

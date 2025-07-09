@@ -23,16 +23,21 @@ tableextension 50100 "Sales Header Table" extends "Sales Header"
             begin
                 DInstructions.Reset();
                 DInstructions.SetRange("Sales Order No.", SalesHeader."No.");
-                if not DInstructions.FindFirst() then begin
+                if DInstructions.FindFirst() then begin
+                    DInstructions."Date Time of Last Modification" := CurrentDateTime;
+                    DInstructions.Modify();
+
+                end else begin
                     DInstructions.Init();
                     DInstructions."Sales Order No." := Rec."No.";
                     DInstructions."Delivery Method" := Rec."Delivery Method";
                     DInstructions.Instructions := Rec."Delivery Instructions";
                     DInstructions."Date Time of Last Modification" := CurrentDateTime;
                     DInstructions.Insert();
-                end else
-                    DInstructions."Date Time of Last Modification" := CurrentDateTime;
-                DInstructions.Modify();
+
+
+                end;
+
             end;
         }
     }
