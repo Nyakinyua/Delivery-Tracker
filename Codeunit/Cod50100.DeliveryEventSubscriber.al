@@ -9,14 +9,19 @@ codeunit 50100 "Delivery Event Subscriber"
     var
         Err001: Label 'You must provide delivery instructions when the delivery method is Courier';
     begin
+        if SalesHeader."Document Type" = SalesHeader."Document Type"::order then begin
 
-        if SalesHeader."Delivery Method" = SalesHeader."Delivery Method"::Courier then begin
-            if SalesHeader."Delivery Instructions" = '' then begin
-
-                error(Err001)
-
+            // Check if the delivery method is Courier
+            if SalesHeader."Delivery Method" = SalesHeader."Delivery Method"::Courier then begin
+               
+                if SalesHeader."Delivery Instructions" = '' then begin
+               
+                    error(Err001);
+                end;
             end;
+
         end;
+        
 
 
     end;
